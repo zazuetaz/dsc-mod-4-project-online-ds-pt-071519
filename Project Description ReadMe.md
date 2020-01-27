@@ -3,7 +3,15 @@
 
 ## Introduction
 
-In this project, I use SARIMA modeling to determine the best zip codes to invest in.
+In this project, I use SARIMA modeling on time series data to determine the best zip codes to invest in.
+
+
+## The Deliverables
+
+In this repo, you will find a Jupyter Notebook with all related code, a PDF of the presentation, and a recording of the business presentation wherein I explain all findings.
+
+![](gif.gif)
+
 
 ## Objectives
 
@@ -11,65 +19,18 @@ In this project, I use SARIMA modeling to determine the best zip codes to invest
 
 ### Final Project Summary
 
-A
+Greeley, CO, Boise City, ID, and Redmond, OR were the three cities that contained the 5 zip codes I selected as being the best to invest in to maximize return on investment over the next 5 years. These zip codes met a number of criteria: they have growing populations, they had the highest average annual growth in property value during the time period of 2010-2018, and they had the highest projected return on investment on the property over the period of 2018-2023.
 
 ### The Project
 
-F
+I was provided with a data set of monthly average property values for properties in 14,723 zip codes in the US, with data starting as far back as April 1996 through April 2018. We were asked to select the 5 "best" zip codes to invest in after conducting time series analysis on the data.
 
-## The Deliverables
+I began with research to find US cities/towns that were experiencing growth during early 2018. A report from US News and World Report provided me with a list of 10 cities that were experiencing 2%+ growth between 2017 and 2018, a rate of growth much higher than national average.
 
-T
+Following that selection, I decided it would be best to remove any data on the markets pre January 2010. This was done to eliminate the noise that would otherwise be present in the data as caused by the market downturn in 2008-09. While there were some zip codes that showed a sluggish recovery and were exhibiting falling property values into 2010-11, the general trend of the 38 zip codes I examined was positive, linear growth.
 
-### Jupyter Notebook Must-Haves
+Of the 38 zip codes, I selected 10 to model by determining which zip codes had the highest average year over year growth in property value from January 2010-April 2018.
 
-F
+I then conducted time series analysis using Seasonal Autoregressive Integrated Moving Average models. That involved generating stationary data, determining the order of the AR and MA portions of the model, and selecting an order of seasonality. All possible combinations were then iterated through to determine which model parameters provided the lowest AIC (goodness-of-fit) score. Those orders were then built into models and forecasts were made for pricing out to April 2023.
 
-#### Organization/Code Cleanliness
-
-The notebook should be well organized, easy to follow, and code is modularized and commented where appropriate.
-
-* Level Up: The notebook contains well-formatted, professional looking markdown cells explaining any substantial code. All functions have docstrings that act as professional-quality documentation.
-* The notebook is written to technical audiences with a way to both understand your approach and reproduce your results. The target audience for this deliverable is other data scientists looking to validate your findings.
-* Data visualizations you create should be clearly labeled and contextualized--that is, they fit with the surrounding code or problems you're trying to solve. No dropping data visualizations randomly around your notebook without any context!
-
-#### Findings
-
-Y
-
-#### Visualizations
-
-Time-Series Analysis is an area of data science that lends itself well to intuitive data visualizations. Whereas we may not be able to visualize the best choice in a classification or clustering problem with a high-dimensional dataset, that isn't an issue with Time Series data. As such, **_any findings worth mentioning in this problem are probably also worth visualizing_**. Your notebook should make use of data visualizations as appropriate to make your findings obvious to any readers.
-
-Also, remember that if a visualization is worth creating, then it's also worth taking the extra few minutes to make sure that it is easily understandable and well-formatted. When creating visualizations, make sure that they have:
-
-* A title
-* Clearly labeled X and Y axes, with appropriate scale for each
-* A legend, when necessary
-* No overlapping text that makes it hard to read
-* An intelligent use of color--multiple lines should have different colors and/or symbols to make them easily differentiable to the eye
-* An appropriate amount of information--avoid creating graphs that are "too busy"--for instance, don't create a line graph with 25 different lines on it
-
-<center><img src='images/bad-graph-1.png' height=100% width=100%>
-There's just too much going on in this graph for it to be readable--don't make the same mistake! (<a href='http://genywealth.com/wp-content/uploads/2010/03/line-graph.php_.png'>Source</a>)</center>
-
-### Blog Post Must-Haves
-
-Refer back to the [Blogging Guidelines](https://github.com/learn-co-curriculum/dsc-welcome-blogging) for the technical requirements and blog ideas.
-
-
-### Executive Summary Must-Haves
-
-Your presentation should:
-
-Contain between 5-10 professional quality slides detailing:
-
-* A high-level overview of your methodology and findings, including the 5 zipcodes you recommend investing in
-* A brief explanation of what metrics you defined as "best" in order complete this project
-
-As always, this prresentation should also:
-
-* Take no more than 5 minutes to present
-* Avoid technical jargon and explain results in a clear, actionable way for non-technical audiences.
-
-![](gif.gif)
+I then calculated the total predicted revenue of owning, renting, then selling the property after 5 years time and selected the 5 zip codes that would provide the best investment based on the return.
